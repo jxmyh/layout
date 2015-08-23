@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .parent {
+            border: 1px dashed #222222;
+            overflow: hidden;
+        }
+
+        .col {
+            height: 100px;
+            background-color: #ccc;
+        }
+
+        .parent {
+            margin-left: -20px;
+        }
+
+        .col {
+            float: left;
+            width: 25%;
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+
+        .col + .col {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="col">第1行</div>
+    <div class="col">第2行</div>
+    <div class="col">第3行</div>
+    <div class="col">第4行</div>
+</div>
+</body>
+</html>

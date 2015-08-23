@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*<!--假设此盒子宽高为400px-->*/
+        .box {
+            margin: 100px auto;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: #ccc;
+        }
+
+        /*方案一，利用伪类,此方法只给演示，不是用于布局*/
+        .demo:after, .demo:before {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+        }
+
+        .demo:after {
+            width: 10px;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            transform: translateX(-50%);
+        }
+
+        .demo:before {
+            height: 10px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        /*方案一 table 此方法在高度存在不能平分高度的缺陷。如果高度不固定的情况。下面的每个div，由于table的特性。高度只能跟随内容高度来高*/
+        .table {
+            display: table;
+            table-layout: fixed;
+            height: auto;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-row > div {
+            display: table-cell;
+            width: 50%;
+            background-color: blue;
+            background-clip: content-box;
+            padding-right: 5px;
+            padding-top: 5px;
+        }
+
+        .table .table-row:first-child > div {
+            padding-top: 0px;
+            padding-bottom: 5px;
+        }
+
+        .table-row div:nth-child(2n) {
+            padding-left: 5px;
+            padding-right: 0;
+        }
+
+        /*方案二 flex  此方法在高度上完全可以平分高度，但在移动端还是flex的兼容性问题存在*/
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .flex > div {
+            background-color: blue;
+            width: 50%;
+            box-sizing: border-box;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            background-clip: content-box;
+        }
+
+        .flex div:nth-child(even) {
+            padding-left: 5px;
+            padding-right: 0;
+        }
+
+        .flex div:last-child, .flex div:nth-child(3) {
+            padding-top: 5px;
+            padding-bottom: 0;
+        }
+
+        /*方案三 float 此方法一样，在高度上也能平分*/
+        .float div {
+            float: left;
+            width: 50%;
+            background-color: blue;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            box-sizing: border-box;
+            height: 50%;
+            background-clip: content-box;
+        }
+
+        .float div:nth-child(odd) {
+            padding-right: 5px;
+            padding-left: 0;
+
+        }
+
+        .float div:last-child, .float div:nth-child(3) {
+            padding-top: 5px;
+            padding-bottom: 0;
+        }
+
+        /*absolute 纯属娱乐*/
+        .absolute div {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background-color: blue;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            background-clip: content-box;
+            box-sizing: border-box;
+        }
+
+        .absolute div:nth-child(2n) {
+            left: 50%;
+            padding-left: 5px;
+            padding-right: 0;
+        }
+
+        .absolute div:last-child, .absolute div:nth-child(3) {
+            top: 50%;
+            padding-top: 5px;
+            padding-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+<h3>演示，非布局</h3>
+
+<div class="box demo"></div>
+<h3>table布局，问题：不能高度自适应</h3>
+
+<div class="box table">
+    <div class="table-row">
+        <div>1</div>
+        <div>2</div>
+    </div>
+    <div class="table-row">
+        <div>3</div>
+        <div>4</div>
+    </div>
+</div>
+<h3>flex布局宽度和高度都能自适应。使用了伪类选择器</h3>
+
+<div class="box flex">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+<h3>float布局宽度和高度都能自适应。使用了伪类选择器</h3>
+
+<div class="box float">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+<h3>absolute布局。纯属娱乐</h3>
+
+<div class="box absolute">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+<h3>还可以有tranform:translate方法，position:relative方法</h3>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            background-color: #ccc;
+            line-height: 100px;
+            overflow: hidden;
+        }
+
+        .left, .right {
+            width: 100px;
+            background-color: pink;
+        }
+
+        /*方案一，float*/
+        /* .left{
+             float: left;
+         }
+         .right{
+             float: right;
+             margin-top: -100px;
+         }
+         .center{
+             position: relative;
+             margin:0 110px;
+             background-color: blue;
+         }*/
+        /*方案二 table*/
+        /*.box{display: table;table-layout: fixed; width: 100%;}
+        .box>div{display: table-cell;}
+        .left,.right{width: 100px;}
+        .center{padding:0 10px;background-color: blue;background-clip: content-box;}*/
+        /*方案三 flex*/
+        /*.box{display: flex;}
+        .left,.right{width: 100px;}
+        .center{flex: 1;padding:0 10px;background-color: blue;background-clip: content-box}*/
+        /*方案四 float+absolute*/
+        .box {
+            position: relative
+        }
+
+        .left, .right {
+            width: 100px;
+        }
+
+        .left {
+            float: left
+        }
+
+        .right {
+            float: right
+        }
+
+        .center {
+            position: absolute;
+            top: 0;
+            left: 110px;
+            right: 110px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="left">左定宽</div>
+    <div class="center">中间自适应</div>
+    <div class="right">右定宽</div>
+</div>
+</body>
+</html>

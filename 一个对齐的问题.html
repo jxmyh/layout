@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .box {
+            width: 100%;
+            height: 200px
+        }
+
+        .one {
+            background-color: blue;
+            height: 100px;
+        }
+
+        .two {
+            background-color: #800080;
+        }
+
+        .tree {
+            background-color: palevioletred;
+        }
+
+        .four {
+            background-color: cornflowerblue;
+            background: url("") n;
+        }
+
+        /*方案一*/
+        /*说明：此方案不能应用于大型的布局，只能应用于小型。渲染性能不能很好。只有高版本浏览器支持，对于不同的浏览器还要加入私有前缀。对于手机端低于安卓低于4.4版本的不支持。要加上
+            宽度。利用浮动来向下兼容。ios完全支持。22222
+        */
+        /*.box{display: flex;align-items:flex-end}
+        .box>div{
+            flex: 1;
+        }*/
+        /*方案二*/
+        /*此方案不兼容ie低版本*/
+        .box {
+            display: table;
+        }
+
+        .box > div {
+            display: inline-block;
+            vertical-align: bottom;
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="one">one</div>
+    <div class="two">two</div>
+    <div class="tree">tree</div>
+    <div class="four">four</div>
+</div>
+</body>
+</html>

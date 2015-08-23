@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .parent {
+            border: 1px dashed #222222;
+            overflow: hidden;
+        }
+
+        .left {
+            background-color: #ccc;
+        }
+
+        .center {
+            background-color: #000080;
+        }
+
+        .right {
+            background-color: #dddddd;
+        }
+
+        .parent {
+            display: flex;
+            width: 100%;
+        }
+
+        .right {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="left">
+        <p>lef1111t</p>
+    </div>
+    <!--<div class="center">center</div>-->
+    <div class="right">
+        <p>right</p>
+
+        <p>right</p>
+    </div>
+
+</div>
+</body>
+</html>

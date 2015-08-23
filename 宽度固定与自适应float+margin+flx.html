@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .parent {
+            border: 1px dashed #222222;
+            overflow: hidden;
+        }
+
+        .left {
+            background-color: #ccc;
+            position: relative;
+        }
+
+        .right {
+            background-color: #dddddd;
+        }
+
+        .left {
+            float: left;
+            width: 100px;
+        }
+
+        .right {
+            margin-left: 120px;
+        }
+
+        .right-flx {
+            float: right;
+            width: 100%;
+            margin-left: -120px;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="left">left</div>
+    <div class="right-flx">
+        <div class="right">
+            <p>right</p>
+
+            <p>right</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

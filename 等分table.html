@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .parent {
+            border: 1px dashed #222222;
+            overflow: hidden;
+        }
+
+        .col {
+            height: 100px;
+            background-color: #ccc;
+        }
+
+        .parent-flx {
+            margin-left: -20px;
+        }
+
+        .parent {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        .col {
+            display: table-cell;
+            padding-left: 20px;
+            border: 1px solid blue;
+            border-top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="parent-flx">
+    <div class="parent">
+        <div class="col">第1行</div>
+        <div class="col">第2行</div>
+        <div class="col">第3行</div>
+        <div class="col">第4行</div>
+    </div>
+</div>
+</body>
+</html>
